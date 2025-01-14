@@ -10,12 +10,6 @@ class User(models.Model):
     date_joined = models.DateTimeField(default = now)
     is_active = models.BooleanField(default = True)
 
-    def __init__(self, username, email, password, is_active):
-        super().__init__()
-        self.username = username
-        self.email = email
-        self.password = password
-        self.is_active = is_active
 
     def save(self, *args, **kwargs): #상속 관계에서 함수 재정의: method overriding 
         self.email = self.email.lower()
